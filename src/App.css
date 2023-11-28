@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
+:root{
+  --modelbgcolor:rgba(0, 0, 0, 0.4);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modelof {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--modelbgcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.model{
+  width: 50%;
+  min-height: 70%;
+  background-color: white;
+  /* padding: 25px; */
+  position: absolute;
+  top: 100px;
+  border-radius: 8px;
+  /* z-index: 1; */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+ 
+}
+.clsbtn {
+/* margin-right: 10px;
+margin-left: 700px;
+border-color: aliceblue;
+background-color: lavender; */
+}
+.xbtn{
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  padding: 10px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(180, 120, 120, 0.4);
+}
+.modelname{
+  display: inline-block;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: blue;
+}
+.blurapp{
+ 
+  margin-top: 20px;
+  gap: 20px; 
+  /* background-color: rgba(2, 2, 2, 0.2); 
+  backdrop-filter: blur(8px); */
+}
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.labels{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+}
+.filds{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.aboutbody{
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+.aboutbody p{
+  display: inline-block;
+    font-size: 1rem;
+    text-align: justify;
+    margin: 15px;
+}
+.lbtn{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 21%;
+}
+.lmodellogin{
+  padding: 6px;
+    border-radius: 9px;
+    background-color:cornflowerblue;
+    color: whitesmoke;
+    border: 1px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+@media  only screen and (max-width:768px) {
+  .mainbtn{
+    display: none !important;
+  }
+  .hamberger{
+    display: block ;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding: 18px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .hambody{
+  position: fixed;
+  top: 55px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--modelbgcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 60%;
+  margin-left: 6%;
+  transition: 2s;
+  }
+  .propertyham{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px
+  }
+  .propertyham span{
+    font-size: 1rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media  only screen and (min-width:768px) {
+  .hamberger{
+    display: none ;
   }
-  to {
-    transform: rotate(360deg);
+  .propertyham{
+    display: none;
   }
 }
+/* .mainbtn{
+  gap: 20%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.mainbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%
+  }
+
