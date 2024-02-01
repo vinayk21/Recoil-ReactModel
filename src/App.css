@@ -102,7 +102,7 @@ margin-top: 21%;
     border-radius: 9px;
     background-color:cornflowerblue;
     color: whitesmoke;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 @media  only screen and (max-width:768px) {
@@ -166,4 +166,31 @@ margin-top: 21%;
   align-items: center;
   gap: 10%
   }
-
+  thead{
+  background-color: #04AA6D;
+  border:1px solid #ddd;
+   font-size: 1rem;
+    color: white;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+thead th{
+  padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 9px;
+}
+tbody tr:nth-child(even){
+  background:  #f2f2f2;
+}
+tbody tr:hover{
+  background-color: #ddd;
+}
+tbody td{
+  font-size: small;
+}
+.rgsymbol{
+  font-size: smaller;
+    border-radius: 25px;
+    background: pink;
+    border: none;
+}

@@ -1,21 +1,40 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import 'react-tooltip/dist/react-tooltip.css'
 import Model from "./Model";
-import { modellogin, modelprofile } from "./Modelrecoil";
-import { useSetRecoilState } from "recoil";
-
+import { modellogin, modelprofile,rgsdata ,masteruserinfoforprofile,prfinfo,profileinfomaster,alllogindata} from "./Modelrecoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { Tooltip } from 'react-tooltip'
+import Tablehoc from "./Tablehoc";
 const Profile = () => {
-
+  const [Alltablevalues,setAlltablevalues] = useRecoilState(masteruserinfoforprofile);
+  const [Allrgsdata,setALlrgsdata] = useRecoilState(rgsdata);
+   const [profileinfo,setprofileinfo] = useRecoilState(prfinfo);
   const setlo = useSetRecoilState(modellogin);
   const setpo = useSetRecoilState(modelprofile);
-  const openLoginMOdel = useCallback(() => {
-    setpo(false);
-    setlo(true);
-  }, []);
-  const profile = useMemo(() => {
-   
+  const valmasterinfo = useRecoilState(profileinfomaster); 
+  const valcredidanteial = useRecoilState(alllogindata); 
+  const tableHader = ["Email","MobileNo","Name","Password","login&Rg"];
+  let lgrg = tableHader.includes("login&Rg");
+  // console.log("lgrg",Alltablevalues);
+  const btn =useMemo(()=>{
     return (
       <>
-        <div className="aboutbody">
+      <button className="rgsymbol">RG</button>
+      </>
+    )
+  },[])   
+  const mapss = () =>{
+      if(valmasterinfo[0]===true && lgrg ===true){
+        return [ Alltablevalues ,btn ];
+      }else{
+        return [valcredidanteial[0], btn];
+      }
+  }
+
+  const profile = useMemo(() => {
+    return (
+      <>
+          <div className="aboutbody">
           <div>
             <h3
               style={{
@@ -28,19 +47,7 @@ const Profile = () => {
             >
               Profile
             </h3>
-            <p>
-              {" "}
-              Most people choose to include their full name, including surname,
-              at the start of their bio. However, if your website URL or
-              personal brand is already your full name, you can shorten it to
-              just your first name. Your position: your current position and the
-              tasks you're responsible for should get a mention
-            </p>
-          </div>
-          <div className="lbtn">
-            <button className="lmodellogin" onClick={() => openLoginMOdel()}>
-              OpenLoginModel
-            </button>
+          <Tablehoc mapss={mapss} tableHader={tableHader}/>
           </div>
         </div>
       </>
